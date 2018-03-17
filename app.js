@@ -32,9 +32,9 @@ app.use(express.json());// returns middleware that only parses JSON
 app.use( express.static( 'public' ));
 
 //Routes
-app.get('/', (req, res) => {
-  res.send('hello world');
-})
+// app.get('/', (req, res) => {
+//   res.send('hello world');
+// })
 
 app.listen( PORT , () =>{
   console.log( 'Server running on port' , PORT);
