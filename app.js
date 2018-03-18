@@ -5,7 +5,7 @@ const app             = express();
 const db              = mongoose.connection;
 
 //Environment Variables
-const mongoURI        = process.env.MONGODB_URI || 'mongodb://localhost/bookmarkd_app';
+const mongoURI        = process.env.MONGODB_URI || 'mongodb://localhost/athleteProfile';
 const PORT            = process.env.PORT || 3000;
 
 //Set mongoose Promise Library
@@ -32,10 +32,9 @@ app.use(express.json());// returns middleware that only parses JSON
 app.use( express.static( 'public' ));
 
 //Routes
-// app.get('/', (req, res) => {
-//   res.send('hello world');
-// })
+const athleteController = require('./controllers/athleteController.js');
+app.use('/athlete', athleteController);
 
-app.listen( PORT , () =>{
-  console.log( 'Server running on port' , PORT);
+app.listen( PORT , () => {
+  console.log( 'Server running on port ' , PORT);
 });
